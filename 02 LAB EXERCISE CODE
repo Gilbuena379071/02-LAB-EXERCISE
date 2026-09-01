@@ -1,0 +1,72 @@
+const int EN_LEFT = 5;    
+const int IN1 = 6;        
+const int IN2 = 7;        
+
+const int EN_RIGHT = 4;   
+const int IN3 = 3;        
+const int IN4 = 2;        
+
+void setup() {
+  pinMode(EN_LEFT, OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  
+  pinMode(EN_RIGHT, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+  digitalWrite(EN_LEFT, HIGH);
+  digitalWrite(EN_RIGHT, HIGH);
+}
+
+void loop() {
+  moveForward();
+  delay(2000);
+
+  turnLeft();
+  delay(1000);
+
+  turnRight();
+  delay(1000);
+
+  moveBackward();
+  delay(2000);
+
+  stopRobot();
+  delay(2000);
+}
+
+void moveForward() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+
+void moveBackward() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+}
+
+void turnLeft() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+
+void turnRight() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+}
+
+void stopRobot() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+}
